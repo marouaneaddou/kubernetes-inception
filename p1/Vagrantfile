@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "generic/alpine318"
+  config.vm.box = "generic/alpine319"
   config.vm.synced_folder "./.vagrant", "/home/vagrant/vagrant_data"
   #config.vm.provision "shell", run: "once", inline: <<-SHELL
   #  if [ ! -f /home/vagrant/vagrant_data/id_rsa ]; then
@@ -25,8 +25,8 @@ Vagrant.configure("2") do |config|
     mbaanniS.vm.network "private_network" , ip: "192.168.56.110"
     mbaanniS.vm.provider "virtualbox" do |vm|
       vm.name = "mbaanniS"
-      vm.cpus = 1
-      vm.memory = 1024
+      vm.cpus = 3
+      vm.memory = 2048
     end
     mbaanniS.vm.provision "shell", name: "provisionS.sh", path: "scripts/provisionS.sh"
 
@@ -37,8 +37,8 @@ Vagrant.configure("2") do |config|
     mbaanniSW.vm.network "private_network" , ip: "192.168.56.111"
     mbaanniSW.vm.provider "virtualbox" do |vm1|
       vm1.name = "mbaanniSW"
-      vm1.cpus = 1
-      vm1.memory = 1024
+      vm1.cpus = 3
+      vm1.memory = 2048
     end
     mbaanniSW.vm.provision "shell", name: "provisionSW.sh", path: "scripts/provisionSW.sh"
   end
